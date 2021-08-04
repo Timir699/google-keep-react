@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/react";
+
 const NoteCreate = () => {
     return (
-        <div>
-            Notes
-        </div>
+        <Box ml="15%" mt="2%" >
+            dsakjgnhbv
+        </Box>
     );
 }
 

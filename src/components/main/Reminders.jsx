@@ -1,7 +1,7 @@
 const Reminders = () => {
     return (
         <div>
-            Reminders
+            Hello Reminders
         </div>
     );
 }
