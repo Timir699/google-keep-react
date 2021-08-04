@@ -1,7 +1,7 @@
 const NoteCreate = () => {
     return (
         <div>
-
+            Notes
         </div>
     );
 }
