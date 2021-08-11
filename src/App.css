@@ -1,4 +1,12 @@
 .active {
-    background: rgb(160, 146, 66) !important;
+    background: #41331c !important;
     z-index: 99999; 
+}
+
+.active:hover .hoverHand {
+    width: 250px !important;
+}
+body {
+    overflow-x: hidden !important;
+    
 }

@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/layout";
 const DeletedNotes = () => {
+
     return (
-        <div>
-            Deleted
-        </div>
+        <Box>
+
+        </Box>
     );
 }
 

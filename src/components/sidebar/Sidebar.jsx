@@ -65,11 +65,13 @@ const Sidebar = ({ sidebarClick }) => {
                             icon={item.icon}
                             text={item.text}
                             sidebarClick={sidebarClick}
-                            path={item.path} />
+                            path={item.path}
+
+                        />
                     )
                 })}
             </Box>
-            
+
             <Route path="/" exact component={NoteCreate} />
             <Route path="/reminder" exact component={Reminders} />
             <Route path="/edit_labels" exact component={EditLabels} />

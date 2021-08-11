@@ -3,7 +3,7 @@ import { Box, Icon } from "@chakra-ui/react";
 const CustomIcon = ({ icon, customPadding, handleClick }) => {
     return (
 
-        <Box onClick={handleClick} padding={customPadding ? "0px 10px 10px 10px" : "15px"}
+        <Box onClick={handleClick} padding={customPadding ? "0px 10px 10px 10px" : "10px"}
             borderRadius="50%"
             transition="all .2s"
             cursor="pointer"
