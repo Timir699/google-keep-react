@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux'
-import demoReducer from './demoReducer'
-import noteReducer from './noteReducer'
+import ThrashReducer from './thrashReducer'
 
 const rootReducer = combineReducers({
-    demo: demoReducer,
-    // notes: noteReducer
+    trashData: ThrashReducer,
 })
 
 export default rootReducer

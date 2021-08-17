@@ -5,7 +5,7 @@ import { Box, Flex, ThemeProvider, theme, CSSReset } from "@chakra-ui/react"
 import Header from './components/header/Header'
 import Main from './components/main/Main'
 import Sidebar from './components/sidebar/Sidebar'
-// import { NotesProvider } from './NotesContext';
+
 
 
 function App() {
@@ -16,22 +16,21 @@ function App() {
     }
 
     return (
-        // <NotesProvider>
-            <ThemeProvider theme={theme}>
-                <CSSReset />
-                <Box height="100vh" bg="#202124" color="#E2E2E3" >
-                    <Header
-                        clickedSideButton={clickedSideButton}
+        <ThemeProvider theme={theme}>
+            <CSSReset />
+            <Box height="100%" bg="#202124" color="#E2E2E3" >
+                <Header
+                    clickedSideButton={clickedSideButton}
+                />
+                <Flex >
+                    <Sidebar
+                        sidebarClick={sidebarClick}
                     />
-                    <Flex >
-                        <Sidebar
-                            sidebarClick={sidebarClick}
-                        />
-                        <Main />
-                    </Flex>
-                </Box >
-            </ThemeProvider>
-        /* </NotesProvider> */
+                    <Main />
+                </Flex>
+            </Box >
+        </ThemeProvider>
+
 
 
     );

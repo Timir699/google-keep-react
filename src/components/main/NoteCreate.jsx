@@ -8,8 +8,12 @@ import { AiOutlineUserAdd } from 'react-icons/ai'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { VscSymbolColor } from 'react-icons/vsc'
 import shortid from "shortid";
+import { useDispatch } from 'react-redux'
+import { notesThrash } from '../../store/actions'
 
 const NoteCreate = () => {
+
+    const dispatch = useDispatch()
 
     const [notes, setNotes] = useState({
         title: '',
@@ -18,16 +22,16 @@ const NoteCreate = () => {
     })
     const [allNotes, setAllNotes] = useState([])
     const [deleteNotes, setDeleteNotes] = useState([])
+
     const handleSubmit = (e) => {
         setNotes({
             ...notes,
             [e.target.name]: e.target.value
         })
-        console.log(notes);
     }
 
     const addNotes = (e) => {
-        if (notes.title === '' && notes.note === '') return
+        if (notes.title === '' || notes.note === '') return
         e.preventDefault()
         setAllNotes([...allNotes, notes])
         setNotes({
@@ -38,7 +42,7 @@ const NoteCreate = () => {
     }
     const sendTothrash = (note) => {
         setDeleteNotes([...deleteNotes, note])
-        const notesClear = allNotes.filter((item) => item.id !== note.id)
+        const notesClear = allNotes.filter(item => item.id !== note.id)
         setAllNotes(notesClear)
         console.log(deleteNotes);
     }
@@ -49,15 +53,13 @@ const NoteCreate = () => {
         fontSize: "32px",
         marginLeft: "15px"
     }
-    console.log(allNotes);
-
     return (
-        <Box>
+        <Box onBlur={addNotes}>
             <Box bg="transparent" ml="160px" mt="5%">
                 <FormControl id="note-area" border="1px solid #525355" borderRadius="5px">
                     <Textarea value={notes.title} onChange={handleSubmit} name="title" className="title" px="20px" type="text" placeholder="Title" border="none" _focus={{ boxShadow: "none" }} />
                     <Textarea value={notes.note} onChange={handleSubmit} name="note" className="note" px="20px" type="text" placeholder="take a note" border="none" _focus={{ boxShadow: "none" }} />
-                    <Button onClick={addNotes} color="#000">Keep Note</Button>
+                    {/* <Button onClick={addNotes} color="#000">Keep Note</Button> */}
                     <Flex p="10px 0px 15px 0px" >
                         <Icon
                             as={BiBellPlus}
@@ -100,8 +102,11 @@ const NoteCreate = () => {
                         return (
                             <Box border="1px solid #525355" p="10px" m="10px" borderRadius="5px" >
                                 <Text fontSize="2xl">{note.title}</Text>
-                                <Text fontSize="3xl">{note.note}</Text>
-                                <Button onClick={() => sendTothrash(note)} color="#000" >Delete</Button>
+                                <Text my="10px" fontSize="1xl">{note.note}</Text>
+                                <Button onClick={() => {
+                                    sendTothrash(note)
+                                    dispatch(notesThrash(note))
+                                }} color="#000">Delete</Button>
                             </Box>
                         )
                     })}

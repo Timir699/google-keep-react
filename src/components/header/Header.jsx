@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Box, chakra, Button, Flex } from '@chakra-ui/react';
+import { Box, chakra, Flex } from '@chakra-ui/react';
 import Searchbar from './Searchbar'
 import { AiOutlineMenu, AiOutlineAppstore } from 'react-icons/ai'
 import { MdRefresh } from 'react-icons/md'
