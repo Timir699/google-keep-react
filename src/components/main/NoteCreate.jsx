@@ -2,7 +2,7 @@ import {
     Box, FormControl,
     Flex, Icon, Textarea, Button, Text
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BiBellPlus, BiArchiveIn, BiImageAdd, BiUndo, BiRedo } from 'react-icons/bi'
 import { AiOutlineUserAdd } from 'react-icons/ai'
 import { BsThreeDotsVertical } from 'react-icons/bs'
@@ -10,6 +10,17 @@ import { VscSymbolColor } from 'react-icons/vsc'
 import shortid from "shortid";
 import { useDispatch } from 'react-redux'
 import { notesThrash } from '../../store/actions'
+
+// getting data from localstorage
+const getAllnotes = () => {
+    let allNotes = localStorage.getItem('allNotes')
+    console.log(allNotes);
+    if (allNotes) {
+        return JSON.parse(localStorage.getItem('allNotes'))
+    } else {
+        return []
+    }
+}
 
 const NoteCreate = () => {
 
@@ -20,7 +31,8 @@ const NoteCreate = () => {
         note: '',
         id: shortid.generate()
     })
-    const [allNotes, setAllNotes] = useState([])
+    const [allNotes, setAllNotes] = useState(getAllnotes())
+
     const [deleteNotes, setDeleteNotes] = useState([])
 
     const handleSubmit = (e) => {
@@ -44,8 +56,11 @@ const NoteCreate = () => {
         setDeleteNotes([...deleteNotes, note])
         const notesClear = allNotes.filter(item => item.id !== note.id)
         setAllNotes(notesClear)
-        console.log(deleteNotes);
     }
+    useEffect(() => {
+        // storing input userInformation
+        localStorage.setItem("allNotes", JSON.stringify(allNotes))
+    }, [allNotes])
 
     const hoverStyle = {
         padding: "8px",
@@ -97,16 +112,16 @@ const NoteCreate = () => {
                 </FormControl>
             </Box>
             <Box ml="20%" >
-                <Flex flexWrap="wrap" flexDirection="column">
+                <Flex flexWrap="wrap" flexDirection="row" w="">
                     {allNotes.map((note) => {
                         return (
-                            <Box border="1px solid #525355" p="10px" m="10px" borderRadius="5px" >
+                            <Box width="100%" border="1px solid #525355" p="10px" m="10px" borderRadius="5px" >
                                 <Text fontSize="2xl">{note.title}</Text>
                                 <Text my="10px" fontSize="1xl">{note.note}</Text>
                                 <Button onClick={() => {
                                     sendTothrash(note)
                                     dispatch(notesThrash(note))
-                                }} color="#000">Delete</Button>
+                                }} color="#000">Move to Thrash</Button>
                             </Box>
                         )
                     })}

@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/layout";
+
 const NotFound = () => {
     return (
-        <div>
+        <Box ml="160px" mt="5%">
             NotFound
-        </div>
+        </Box>
     );
 }
 

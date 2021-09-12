@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/layout";
+
 const Reminders = () => {
     return (
-        <div>
+        <Box ml="160px" mt="5%">
             Hello Reminders
-        </div>
+        </Box>
     );
 }
 

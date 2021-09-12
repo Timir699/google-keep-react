@@ -27,6 +27,7 @@ function App() {
                         sidebarClick={sidebarClick}
                     />
                     <Main />
+
                 </Flex>
             </Box >
         </ThemeProvider>

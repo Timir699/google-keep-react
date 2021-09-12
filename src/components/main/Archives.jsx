@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/layout";
+
 const Archives = () => {
     return (
-        <div>
+        <Box ml="160px" mt="5%">
             Archives
-        </div>
+        </Box>
     );
 }
 

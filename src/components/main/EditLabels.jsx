@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/layout";
+
 const EditLabels = () => {
     return (
-        <div>
+        <Box ml="160px" mt="5%">
             Edit Labels
-        </div>
+        </Box>
     );
 }
 
