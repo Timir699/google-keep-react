@@ -13,7 +13,6 @@ import Reminders from '../main/Reminders'
 import EditLabels from '../main/EditLabels'
 import Archives from '../main/Archives'
 import DeletedNotes from '../main/DeletedNotes'
-import NotFound from '../main/NotFound'
 
 
 const navigation = [
