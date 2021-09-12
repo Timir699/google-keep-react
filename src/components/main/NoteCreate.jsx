@@ -69,8 +69,8 @@ const NoteCreate = () => {
         marginLeft: "15px"
     }
     return (
-        <Box onBlur={addNotes}>
-            <Box bg="transparent" ml="160px" mt="5%">
+        <Box w="1700px" onBlur={addNotes}>
+            <Box w="500px" bg="transparent" ml="160px" mt="5%">
                 <FormControl id="note-area" border="1px solid #525355" borderRadius="5px">
                     <Textarea value={notes.title} onChange={handleSubmit} name="title" className="title" px="20px" type="text" placeholder="Title" border="none" _focus={{ boxShadow: "none" }} />
                     <Textarea value={notes.note} onChange={handleSubmit} name="note" className="note" px="20px" type="text" placeholder="take a note" border="none" _focus={{ boxShadow: "none" }} />
@@ -111,8 +111,8 @@ const NoteCreate = () => {
                     </Flex>
                 </FormControl>
             </Box>
-            <Box ml="20%" >
-                <Flex flexWrap="wrap" flexDirection="row" w="">
+            <Box ml="9%" >
+                <Flex flexWrap="wrap" flexDirection="row" w="34%">
                     {allNotes.map((note) => {
                         return (
                             <Box width="100%" border="1px solid #525355" p="10px" m="10px" borderRadius="5px" >

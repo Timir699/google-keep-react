@@ -9,11 +9,11 @@ const DeletedNotes = () => {
 
 
     return (
-        <Box ml="160px">
+        <Box w="1700px" ml="160px">
             <Text display={trashData.length === 0 ? "block" : "none"} fontSize="2xl">trash is empty</Text>
             {trashData.map((note) => {
                 return (
-                    <Box border="1px solid #525355" p="10px" m="10px" borderRadius="5px" >
+                    <Box w="30%" border="1px solid #525355" p="10px" m="10px" borderRadius="5px" >
                         <Text fontSize="2xl">{note?.title}</Text>
                         <Text my="10px" fontSize="1xl">{note?.note}</Text>
                         <Button onClick={() => dispatch(notesDelete(note))} color="red">Delete</Button>

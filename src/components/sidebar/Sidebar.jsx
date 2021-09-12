@@ -54,7 +54,7 @@ const Sidebar = ({ sidebarClick }) => {
 
     return (
         <Router>
-            <Box paddingBottom="270px" width={sidebarClick ? "60px" : "250px"}>
+            <Box width={sidebarClick ? "60px" : "250px"}>
                 {navigation.map((item) => {
                     return (
                         <NavItem key={item.id}
